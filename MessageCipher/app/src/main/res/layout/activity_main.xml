@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/txtAESPwd"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint="AES密码(16/24/32个字符长度)"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/btnGenKeys"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnGenKeys" />
+
+    <Button
+        android:id="@+id/btnClearAesPwdTxt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="x"
+        app:backgroundTint="#FF0000"
+        app:layout_constraintEnd_toStartOf="@+id/btnGenKeys"
+        app:layout_constraintTop_toTopOf="@+id/btnGenKeys" />
+
+    <Button
+        android:id="@+id/btnGenKeys"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="生成密钥"
+        app:backgroundTint="#03A9F4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtPublicKey"
+        android:layout_width="0dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity='top'
+        android:hint="RSA公钥\n这是您能发送给他人的密钥"
+        android:inputType="textMultiLine|textPersonName"
+        android:singleLine="false"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/btnGenKeys"
+        app:layout_constraintStart_toStartOf="@+id/txtAESPwd"
+        app:layout_constraintTop_toBottomOf="@+id/btnGenKeys" />
+
+    <Button
+        android:id="@+id/btnClearPublicKeyTxt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="x"
+        app:backgroundTint="#FF0000"
+        app:layout_constraintEnd_toEndOf="@+id/txtPublicKey"
+        app:layout_constraintTop_toBottomOf="@+id/btnGenKeys" />
+
+    <Button
+        android:id="@+id/btnPublicKeyEncrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="公钥加密"
+        app:backgroundTint="#9CCC65"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPastePublicKey"
+        app:layout_constraintEnd_toStartOf="@+id/btnPastePublicKey" />
+
+    <Button
+        android:id="@+id/btnPublicKeyDecrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="公钥解密"
+        app:backgroundTint="#9CCC65"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPublicKeyEncrypt"
+        app:layout_constraintEnd_toStartOf="@+id/btnPublicKeyEncrypt" />
+
+    <Button
+        android:id="@+id/btnCopyPublicKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="复制"
+        app:backgroundTint="#9CCC65"
+        app:layout_constraintBottom_toTopOf="@+id/btnPastePublicKey"
+        app:layout_constraintEnd_toEndOf="@+id/btnPastePublicKey" />
+
+    <Button
+        android:id="@+id/btnPastePublicKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="粘贴"
+        app:backgroundTint="#9CCC65"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPublicKey"
+        app:layout_constraintEnd_toEndOf="@+id/txtPublicKey" />
+
+    <EditText
+        android:id="@+id/txtPrivateKey"
+        android:layout_width="0dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity='top'
+        android:hint="RSA私钥\n如果由您生成密钥对\n务必保证私钥安全"
+        android:inputType="textMultiLine|textPersonName"
+        android:singleLine="false"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/btnCopyPublicKey"
+        app:layout_constraintStart_toStartOf="@+id/txtPublicKey"
+        app:layout_constraintTop_toBottomOf="@+id/txtPublicKey" />
+
+    <Button
+        android:id="@+id/btnClearPrivateKeyTxt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="x"
+        app:backgroundTint="#FF0000"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrivateKey"
+        app:layout_constraintTop_toTopOf="@+id/txtPrivateKey" />
+
+    <Button
+        android:id="@+id/btnPrivateKeyEncrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="私钥加密"
+        app:backgroundTint="#F48FB1"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPastePrivateKey"
+        app:layout_constraintEnd_toStartOf="@+id/btnPastePrivateKey" />
+
+    <Button
+        android:id="@+id/btnPrivateKeyDecrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="私钥解密"
+        app:backgroundTint="#F48FB1"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPrivateKeyEncrypt"
+        app:layout_constraintEnd_toStartOf="@+id/btnPrivateKeyEncrypt" />
+
+    <Button
+        android:id="@+id/btnCopyPrivateKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="复制"
+        app:backgroundTint="#F48FB1"
+        app:layout_constraintBottom_toTopOf="@+id/btnPastePrivateKey"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrivateKey" />
+
+    <Button
+        android:id="@+id/btnPastePrivateKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="粘贴"
+        app:backgroundTint="#F48FB1"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPrivateKey"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrivateKey" />
+
+    <EditText
+        android:id="@+id/txtSignature"
+        android:layout_width="0dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity='top'
+        android:hint="数字签名\n只有私钥持有者能\n生成正确的签名"
+        android:inputType="textMultiLine|textPersonName"
+        android:singleLine="false"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/txtPrivateKey"
+        app:layout_constraintStart_toStartOf="@+id/txtPrivateKey"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrivateKey" />
+
+    <Button
+        android:id="@+id/btnClearSignatureTxt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="x"
+        app:backgroundTint="#FF0000"
+        app:layout_constraintEnd_toEndOf="@+id/txtSignature"
+        app:layout_constraintTop_toTopOf="@+id/txtSignature" />
+
+    <Button
+        android:id="@+id/btnGenSignature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="签名->复制"
+        app:backgroundTint="#FDD96C"
+        app:layout_constraintBottom_toBottomOf="@+id/btnVerifySignature"
+        app:layout_constraintEnd_toStartOf="@+id/btnVerifySignature" />
+
+    <Button
+        android:id="@+id/btnVerifySignature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="验证签名"
+        app:backgroundTint="#FDD96C"
+        app:layout_constraintBottom_toBottomOf="@+id/txtSignature"
+        app:layout_constraintEnd_toEndOf="@+id/txtSignature" />
+
+    <Button
+        android:id="@+id/btnPasteSignature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="粘贴"
+        app:backgroundTint="#FDD96C"
+        app:layout_constraintBottom_toTopOf="@+id/btnVerifySignature"
+        app:layout_constraintEnd_toEndOf="@+id/btnVerifySignature" />
+
+    <EditText
+        android:id="@+id/txtEncryptedTxt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity='top'
+        android:hint="密文\n您接收到的或者要发送的"
+        android:inputType="textMultiLine|textPersonName"
+        android:singleLine="false"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/btnGoToAES"
+        app:layout_constraintEnd_toEndOf="@+id/btnPasteSignature"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtSignature"
+        app:layout_constraintTop_toBottomOf="@+id/txtSignature"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnClearEncryptedTxt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="x"
+        app:backgroundTint="#FF0000"
+        app:layout_constraintEnd_toEndOf="@+id/txtEncryptedTxt"
+        app:layout_constraintTop_toTopOf="@+id/txtEncryptedTxt" />
+
+    <Button
+        android:id="@+id/btnCopyEncryptedTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="复制密文"
+        app:backgroundTint="#673AB7"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPasteEncryptedTxt"
+        app:layout_constraintEnd_toStartOf="@+id/btnPasteEncryptedTxt" />
+
+    <Button
+        android:id="@+id/btnPasteEncryptedTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="粘贴密文"
+        app:backgroundTint="#673AB7"
+        app:layout_constraintBottom_toBottomOf="@+id/txtEncryptedTxt"
+        app:layout_constraintEnd_toEndOf="@+id/txtEncryptedTxt" />
+
+    <Button
+        android:id="@+id/btnPurgeAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="重置"
+        app:backgroundTint="#303F9F"
+        app:layout_constraintBottom_toBottomOf="@+id/btnGoToAES"
+        app:layout_constraintEnd_toStartOf="@+id/btnGoToAES" />
+
+    <Button
+        android:id="@+id/btnGoToAES"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="AES加密模块"
+        app:backgroundTint="#E91E63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnGenRandAesPwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="随机密码"
+        app:layout_constraintBottom_toBottomOf="@+id/btnGoToAES"
+        app:layout_constraintStart_toEndOf="@+id/btnGoToAES" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

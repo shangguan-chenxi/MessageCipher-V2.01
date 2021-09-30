@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btnClearPlainTxt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/plainText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="AES明文"
+        android:inputType="textMultiLine|textPersonName"
+        android:singleLine="false"
+        app:layout_constraintBottom_toTopOf="@+id/btnEncrypt"
+        app:layout_constraintEnd_toEndOf="@+id/aesPwd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/aesPwd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnEncrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="加密->复制"
+        app:backgroundTint="#03A9F4"
+        app:layout_constraintBottom_toTopOf="@+id/aesPwd"
+        app:layout_constraintStart_toStartOf="@+id/aesPwd" />
+
+    <Button
+        android:id="@+id/btnDelPlainTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="清除明文"
+        app:backgroundTint="#03A9F4"
+        app:layout_constraintBottom_toBottomOf="@+id/btnEncrypt"
+        app:layout_constraintEnd_toEndOf="@+id/aesPwd"
+        app:layout_constraintTop_toTopOf="@+id/btnEncrypt"
+        app:layout_constraintVertical_bias="0.372" />
+
+    <EditText
+        android:id="@+id/aesPwd"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="AES密码(16/24/32个字符长度)"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/encryptedText"
+        app:layout_constraintEnd_toEndOf="@+id/encryptedText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/encryptedText" />
+
+    <Button
+        android:id="@+id/btnPurgeAll"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="重置"
+        app:backgroundTint="#303F9F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnDecrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="解密"
+        app:backgroundTint="#4CAF50"
+        app:layout_constraintBottom_toBottomOf="@+id/encryptedText"
+        app:layout_constraintEnd_toStartOf="@+id/btnPasteEncryptedTxt" />
+
+    <Button
+        android:id="@+id/btnPasteEncryptedTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="粘贴->解密"
+        app:backgroundTint="#4CAF50"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDecrypt"
+        app:layout_constraintEnd_toEndOf="@+id/encryptedText" />
+
+    <Button
+        android:id="@+id/butDelEncryptedTxt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="X"
+        app:backgroundTint="#FF0000"
+        app:layout_constraintEnd_toEndOf="@+id/encryptedText"
+        app:layout_constraintTop_toTopOf="@+id/encryptedText" />
+
+    <EditText
+        android:id="@+id/encryptedText"
+        android:layout_width="0dp"
+        android:layout_height="130dp"
+
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:gravity='top'
+        android:hint="AES密文"
+        android:inputType="textMultiLine|textPersonName"
+        android:singleLine="false"
+        app:layout_constraintBottom_toTopOf="@+id/btnPurgeAll"
+        app:layout_constraintEnd_toEndOf="@+id/btnPurgeAll"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnPurgeAll" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
